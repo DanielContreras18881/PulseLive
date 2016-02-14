@@ -1,6 +1,8 @@
 'use strict';
 
     var app = angular.module('rankings', ['ngRoute',
+                                          'ui.bootstrap',
+                                          'dialogs.main',
                                           'rankings.services']);
 
     function config ($locationProvider,$routeProvider) {

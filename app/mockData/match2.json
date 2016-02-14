@@ -1,0 +1,25 @@
+[ {
+  "matchId": 2545,
+  "description": "Match 24",
+  "venue": {
+    "id": 600,
+    "name": "Palace",
+    "city": "Transilvania",
+    "country": "Romania"
+  },
+  "teams": [ {
+    "id": 2,
+    "name": "Romania",
+    "abbreviation": "ROM"
+  }, {
+    "id": 1,
+    "name": "New Zeland",
+    "abbreviation": "NZL"
+  } ],
+  "scores": [
+    34,
+    17
+  ],
+  "status": "C",
+  "outcome": "A"
+} ]
