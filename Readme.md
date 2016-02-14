@@ -8,6 +8,15 @@ To run, launch gulp from the root directory of the project.
 
 =====================================================================================
 
+Live DEMO
+=========
+
+You can see a live demo of this example here
+
+https://pulseliverankings.herokuapp.com/
+
+=====================================================================================
+
 pulseBall.init
 ==============
 
