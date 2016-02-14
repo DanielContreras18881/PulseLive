@@ -11,7 +11,7 @@
         .$promise.then(
           //Success
           function (data) {
-            console.log('Getting the Ranking');
+            console.log('Getting Ranking');
             $scope.rankingList = data;
           },
           //Error

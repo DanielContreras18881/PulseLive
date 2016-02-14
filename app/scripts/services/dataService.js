@@ -9,7 +9,7 @@
      * Added constant with location of mock
      */
     function Rankings ($resource, Mock_Rankings) {
-      console.log('Getting the Rankings');
+      console.log('Getting the Ranking');
       return $resource(Mock_Rankings);
     };
     /**
