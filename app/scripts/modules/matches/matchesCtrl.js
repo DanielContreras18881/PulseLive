@@ -69,24 +69,7 @@
      * Controller to manage Match File
      * Added $scope to manage data
      */
-    function FileMatchController ($scope,$modalInstance) {
-      //Initialize Match Data
-      $scope.matchData = {
-        matchId:'',
-        teams: [
-          {
-            name: ''
-          }, {
-            name: ''
-          }
-        ],
-        scores: [
-          0,
-          0
-        ],
-        status:'',
-        outcome:''
-      }
+    function FileMatchController ($scope,$modalInstance,fileReader) {
       /**
        * Close modal
        */
@@ -98,6 +81,15 @@
        */
       $scope.save = function(){
       			$modalInstance.close($scope.matchData);
+      };
+      /**
+       * Get the Match data from the file
+       */
+      $scope.readFile = function () {
+          fileReader.readAsText($scope.file, $scope)
+                        .then(function(result) {
+                            $scope.matchData = JSON.parse(result);
+                        });
       };
 
     };

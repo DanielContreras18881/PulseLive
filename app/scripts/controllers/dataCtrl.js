@@ -17,7 +17,7 @@
                 dlgFileRanking.result.then(
                   function(data){//Save Modal
                     console.log('Ranking Data Saved');
-                    $scope.init(data);
+                    $scope.initRanking(data);
                   },function(){//Close Modal
                     console.log('Ranking File Closed');
                   }
@@ -53,7 +53,8 @@
        * Function to add a match
        */
       $scope.addMatch = function(matchData){
-        var matchExists = $filter('filter')($scope.matchesList,{"matchId":matchData.matchId})[0];
+        var matchExists = $filter('filter')($scope.matchesList,
+                          function(value, index) {return value.matchId === matchData.matchId;})[0];
         if(matchExists!==undefined){
           //Update the match data
           matchExists.scores = matchData.scores;
@@ -111,7 +112,7 @@
       /**
        * Initialize the ranking with new ranking and erase the match list
        */
-      $scope.init = function(data){
+      $scope.initRanking = function(data){
         $scope.rankingList = data;
         $scope.matchesList = [];
       }

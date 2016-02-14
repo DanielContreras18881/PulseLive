@@ -31,7 +31,7 @@
      * Controller to manage Ranking file
      * Added $scope to manage data
      */
-    function FileRankingController ($scope,$modalInstance) {
+    function FileRankingController ($scope,$modalInstance,fileReader) {
       /**
        * Close modal
        */
@@ -42,7 +42,16 @@
        * Save File Data
        */
       $scope.save = function(){
-      			$modalInstance.close();
+      			$modalInstance.close($scope.rankingData);
+      };
+      /**
+       * Get the Ranking data from the file
+       */
+      $scope.readFile = function () {
+          fileReader.readAsText($scope.file, $scope)
+                        .then(function(result) {
+                            $scope.rankingData = JSON.parse(result);
+                        });
       };
 
     };
