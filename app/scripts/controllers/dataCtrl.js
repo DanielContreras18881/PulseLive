@@ -86,26 +86,23 @@
             if(match.outcome==='A'){
               //Home wins
               var winHome = 1 - rating.toPrecision(2) / 10;
-              winHome = winHome.toPrecision(2);
               //Rankig is updated
-              homeTeam.pts = parseFloat(homeTeam.pts) + winHome;
-              visitorTeam.pts = parseFloat(visitorTeam.pts) - winHome;
+              homeTeam.pts = (homeTeam.pts + winHome).toPrecision(2);
+              visitorTeam.pts = (visitorTeam.pts - winHome).toPrecision(2);
             }
             if(match.outcome==='B'){
               //Visitor wins
               var winVisitor = 1 + rating.toPrecision(2) / 10;
-              winVisitor = winVisitor.toPrecision(2);
               //Rankig is updated
-              homeTeam.pts = parseFloat(homeTeam.pts) - winVisitor;
-              visitorTeam.pts = parseFloat(visitorTeam.pts) + winVisitor;
+              homeTeam.pts = (homeTeam.pts - winVisitor).toPrecision(2);
+              visitorTeam.pts = (visitorTeam.pts + winVisitor).toPrecision(2);
             }
             if(match.outcome==='C'){
               //Draw
               var draw = rating.toPrecision(2) / 10;
-              draw = draw.toPrecision(2);
               //Rankig is updated
-              homeTeam.pts = parseFloat(homeTeam.pts) + draw;
-              visitorTeam.pts = parseFloat(visitorTeam.pts) + draw;
+              homeTeam.pts = (homeTeam.pts + draw).toPrecision(2);
+              visitorTeam.pts = (visitorTeam.pts + draw).toPrecision(2);
             }
           }else{//One or both teams do not exist on the ranking
             console.log('These teams do not participate in this league! Try again!');
