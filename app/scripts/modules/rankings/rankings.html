@@ -1,22 +1,28 @@
 <!doctype html>
 <meta charset="UTF-8">
 
-<h4 class="sub-header">Ranking</h4>
-<div class="table-responsive">
-  <table class="table table-striped table-bordered">
-    <thead>
-      <tr>
-        <th>Position</th>
-        <th>Team</th>
-        <th>Points</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr ng-repeat="position in rankingList | orderBy:['pos','name'] track by $index">
-        <td>{{position.pos}}</td>
-        <td>{{position.team.name}}</td>
-        <td>{{position.pts}}</td>
-      </tr>
-    </tbody>
-  </table>
+<div class="panel panel-primary">
+  <div class="panel-heading">
+      <h4 class="panel-title">Ranking</h4>
+  </div>
+  <div class="panel-body">
+    <div class="table-responsive">
+      <table class="table table-striped table-bordered">
+        <thead>
+          <tr>
+            <th>Position</th>
+            <th>Team</th>
+            <th>Points</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="position in rankingList | orderBy:['pos','name'] track by $index">
+            <td>{{position.pos}}</td>
+            <td>{{position.team.name}}</td>
+            <td>{{position.pts}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>

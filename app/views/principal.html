@@ -1,28 +1,32 @@
 <!doctype html>
 <meta charset="UTF-8">
 
-<div class="page-header">
-  <h3>Ranking Predictor <small>({{version}})</small></h3>
-</div>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <div class="page-header text-center">
+      <h3>Ranking Predictor <small>({{version}})</small></h3>
+    </div>
+    <div class="text-center">
+      <div class="btn-group">
+        <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;Add&nbsp;<span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+          <li><a href="#" ng-click="addData('ranking')"><span class="glyphicon glyphicon-file" aria-hidden="false"></span>&nbsp;Ranking from File</a></li>
+          <li role="separator" class="divider"></li>
+          <li><a href="#" ng-click="addData('matchFile')"><span class="glyphicon glyphicon-file" aria-hidden="false"></span>&nbsp;Match from File</a></li>
+          <li><a href="#" ng-click="addData('matchForm')"><span class="glyphicon glyphicon-pencil" aria-hidden="false"></span>&nbsp;Match from Form</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="panel-body">
+    <aside class="col-sm-5">
+      <ranking ng-init="init()"/>
+    </aside>
 
-<div class="text-center">
-  <div class="btn-group">
-    <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;Add&nbsp;<span class="caret"></span>
-    </button>
-    <ul class="dropdown-menu">
-      <li><a href="#" ng-click="addData('ranking')"><span class="glyphicon glyphicon-file" aria-hidden="false"></span>&nbsp;Ranking from File</a></li>
-      <li role="separator" class="divider"></li>
-      <li><a href="#" ng-click="addData('matchFile')"><span class="glyphicon glyphicon-file" aria-hidden="false"></span>&nbsp;Match from File</a></li>
-      <li><a href="#" ng-click="addData('matchForm')"><span class="glyphicon glyphicon-pencil" aria-hidden="false"></span>&nbsp;Match from Form</a></li>
-    </ul>
+    <section class="col-sm-7">
+      <matcheslistdata ng-init="init()"/>
+    </section>
   </div>
 </div>
-
-<aside class="col-sm-4">
-  <ranking ng-init="init()"/>
-</aside>
-
-<section class="col-sm-8">
-  <matcheslistdata ng-init="init()"/>
-</section>
