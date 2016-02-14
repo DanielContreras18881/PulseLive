@@ -86,6 +86,7 @@
             if(match.outcome==='A'){
               //Home wins
               var winHome = 1 - rating.toPrecision(2) / 10;
+              winHome = draw.toPrecision(2);
               //Rankig is updated
               homeTeam.pts = parseFloat(homeTeam.pts) + winHome;
               visitorTeam.pts = parseFloat(visitorTeam.pts) - winHome;
@@ -93,6 +94,7 @@
             if(match.outcome==='B'){
               //Visitor wins
               var winVisitor = 1 + rating.toPrecision(2) / 10;
+              winVisitor = draw.toPrecision(2);
               //Rankig is updated
               homeTeam.pts = parseFloat(homeTeam.pts) - winVisitor;
               visitorTeam.pts = parseFloat(visitorTeam.pts) + winVisitor;
@@ -100,6 +102,7 @@
             if(match.outcome==='C'){
               //Draw
               var draw = rating.toPrecision(2) / 10;
+              draw = draw.toPrecision(2);
               //Rankig is updated
               homeTeam.pts = parseFloat(homeTeam.pts) + draw;
               visitorTeam.pts = parseFloat(visitorTeam.pts) + draw;
