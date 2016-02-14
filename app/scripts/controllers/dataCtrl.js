@@ -17,7 +17,7 @@
                 dlgFileRanking.result.then(
                   function(data){//Save Modal
                     console.log('Ranking Data Saved');
-                    $scope.updateRanking(data);
+                    $scope.init(data);
                   },function(){//Close Modal
                     console.log('Ranking File Closed');
                   }
@@ -52,27 +52,13 @@
       /**
        * Function to add a match
        */
-      $scope.addMatch = function(match){
-        var matchData =  {
-          "matchId": match.matchId,
-          "teams": [ {
-              "name": match.home
-              }, {
-              "name": match.visitor
-              } ],
-          "scores": [
-            match.pointsHome,
-            match.pointsVisitor
-          ],
-          "status": match.status,
-          "outcome": match.outcome
-        }
-        var matchExists = $filter('filter')($scope.matchesList,{"matchId":match.matchData.matchId})[0];
+      $scope.addMatch = function(matchData){
+        var matchExists = $filter('filter')($scope.matchesList,{"matchId":matchData.matchId})[0];
         if(matchExists!==undefined){
           //Update the match data
           matchExists.scores = matchData.scores;
           matchExists.status = matchData.status;
-          matchExists.outcome = match.outcome;
+          matchExists.outcome = matchData.outcome;
           matchData = matchExists;
         }else{
           //New match data
@@ -99,7 +85,6 @@
             if(match.outcome==='A'){
               //Home wins
               var winHome = 1 - rating.toPrecision(2) / 10;
-              winHome = parseFloat(winHome.toPrecision(2));
               //Rankig is updated
               homeTeam.pts = parseFloat(homeTeam.pts) + winHome;
               visitorTeam.pts = parseFloat(visitorTeam.pts) - winHome;
@@ -107,7 +92,6 @@
             if(match.outcome==='B'){
               //Visitor wins
               var winVisitor = 1 + rating.toPrecision(2) / 10;
-              winVisitor = parseFloat(winVisitor.toPrecision(2));
               //Rankig is updated
               homeTeam.pts = parseFloat(homeTeam.pts) - winVisitor;
               visitorTeam.pts = parseFloat(visitorTeam.pts) + winVisitor;
@@ -115,7 +99,6 @@
             if(match.outcome==='C'){
               //Draw
               var draw = rating.toPrecision(2) / 10;
-              draw = parseFloat(draw.toPrecision(2));
               //Rankig is updated
               homeTeam.pts = parseFloat(homeTeam.pts) + draw;
               visitorTeam.pts = parseFloat(visitorTeam.pts) + draw;
@@ -124,6 +107,13 @@
             console.log('These teams do not participate in this league! Try again!');
           }
         }
+      };
+      /**
+       * Initialize the ranking with new ranking and erase the match list
+       */
+      $scope.init = function(data){
+        $scope.rankingList = data;
+        $scope.matchesList = [];
       }
 
     };

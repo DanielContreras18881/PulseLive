@@ -34,10 +34,17 @@
       //Initialize Form Data
       $scope.formData = {
         matchId:Math.floor(Date.now() / 1000),
-        home:'',
-        visitor:'',
-        pointsHome:0,
-        pointsVisitor:0,
+        teams: [
+          {
+            name: ''
+          }, {
+            name: ''
+          }
+        ],
+        scores: [
+          0,
+          0
+        ],
         status:'',
         outcome:''
       }
@@ -52,7 +59,7 @@
        */
       $scope.save = function(){
             $scope.formData.status = 'C';
-            $scope.formData.outcome = $scope.formData.pointsHome > $scope.formData.pointsVisitor?'A':$scope.formData.pointsHome < $scope.formData.pointsVisitor?'B':'D';
+            $scope.formData.outcome = $scope.formData.scores[0] > $scope.formData.scores[1]?'A':$scope.formData.scores[0] < $scope.formData.scores[1]?'B':'D';
       			$modalInstance.close($scope.formData);
       };
 
@@ -66,10 +73,17 @@
       //Initialize Match Data
       $scope.matchData = {
         matchId:'',
-        home:'',
-        visitor:'',
-        pointsHome:0,
-        pointsVisitor:0,
+        teams: [
+          {
+            name: ''
+          }, {
+            name: ''
+          }
+        ],
+        scores: [
+          0,
+          0
+        ],
         status:'',
         outcome:''
       }

@@ -19,13 +19,13 @@
           <div class="col-lg-8">
             <div class="input-group">
               <span class="input-group-addon" id="basic-addon1">Home</span>
-              <input ng-model="formData.home" type="text" class="form-control" placeholder="Home" aria-describedby="basic-addon1">
+              <input ng-model="formData.teams[0].name" type="text" class="form-control" placeholder="Home" aria-describedby="basic-addon1">
             </div>
           </div>
           <div class="col-lg-4">
             <div class="input-group">
               <span class="input-group-addon" id="basic-addon2">Points</span>
-              <input ng-model="formData.pointsHome" type="number" class="form-control" placeholder="0" aria-describedby="basic-addon2">
+              <input ng-model="formData.scores[0]" type="number" class="form-control" placeholder="0" aria-describedby="basic-addon2">
             </div>
           </div>
         </div>
@@ -34,13 +34,13 @@
           <div class="col-lg-8">
             <div class="input-group">
               <span class="input-group-addon" id="basic-addon3">Visitor</span>
-              <input ng-model="formData.visitor" type="text" class="form-control" placeholder="Visitor" aria-describedby="basic-addon3">
+              <input ng-model="formData.teams[1].name" type="text" class="form-control" placeholder="Visitor" aria-describedby="basic-addon3">
             </div>
           </div>
           <div class="col-lg-4">
             <div class="input-group">
               <span class="input-group-addon" id="basic-addon4">Points</span>
-              <input ng-model="formData.pointsVisitor" type="number" class="form-control" placeholder="0" aria-describedby="basic-addon4">
+              <input ng-model="formData.scores[1]" type="number" class="form-control" placeholder="0" aria-describedby="basic-addon4">
             </div>
           </div>
         </div>
