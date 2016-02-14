@@ -2,14 +2,14 @@
 ExercisePulseBall
 =================
 
-Build with AngularJs & Bootstrap by Daniel Contreras Aladro
+Developed with NodeJs, Express, AngularJs & Bootstrap by Daniel Contreras Aladro
 
 =====================================================================================
 
 pulseBall.init
 ==============
 
-Function to initalize the App with the initial rankings
+Function to initialize the App with the initial rankings
 
 =====================================================================================
 

@@ -1,0 +1,22 @@
+<!doctype html>
+<meta charset="UTF-8">
+
+<h4 class="sub-header">Matches</h4>
+<div class="table-responsive">
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th>Home</th>
+        <th>Result</th>
+        <th>Visitor</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="match in matchesList track by $index">
+        <td>{{match.teams[0].name}}</td>
+        <td>{{match.scores[0]}} - {{match.scores[1]}}</td>
+        <td>{{match.teams[1].name}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

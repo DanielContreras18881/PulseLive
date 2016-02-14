@@ -1,0 +1,25 @@
+[ {
+  "matchId": 2524,
+  "description": "Match 2",
+  "venue": {
+    "id": 900,
+    "name": "Stadium",
+    "city": "Paris",
+    "country": "France"
+  },
+  "teams": [ {
+    "id": 2,
+    "name": "France",
+    "abbreviation": "FRA"
+  }, {
+    "id": 1,
+    "name": "England",
+    "abbreviation": "ENG"
+  } ],
+  "scores": [
+    19,
+    23
+  ],
+  "status": "C",
+  "outcome": "B"
+} ]

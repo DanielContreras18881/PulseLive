@@ -1,0 +1,11 @@
+{
+  "name": "PulseLiveRankingsExample",
+  "version": "0.0.1",
+  "description": "Rankings Predictor Exercise",
+  "dependencies": {
+    "angular": "~1.5.0",
+    "bootstrap": "~3.3.6",
+    "angular-resource": "^1.5.0",
+    "angular-route": "^1.5.0"
+  }
+}
