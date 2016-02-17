@@ -69,6 +69,33 @@
         };
     };
     /**
+    * Manage JSON data in localStorage
+    */
+    function LocalStorage(){
+      /**
+       * Save key-value pair in local storage
+       */
+      var set = function (key, value) {
+          localStorage.setItem(key, JSON.stringify(value));
+      };
+      /**
+       * Get vale of the key of the local storage
+       */
+      var get = function (key) {
+        var resultado = localStorage.getItem(key);
+        if (resultado !== null && resultado !== 'undefined' && resultado !== undefined) {
+            return JSON.parse(resultado);
+        } else {
+            return null;
+        }
+      };
+
+      return {
+          set: set,
+          get:get
+      };
+    };
+    /**
      * Add the functions and constants to the module
      */
     angular.module('rankings.services')
@@ -76,4 +103,5 @@
       .constant('Mock_Rankings', './mockData/rankings.json')
       .factory('Rankings', Rankings)
       .factory('Matches', Matches)
-      .factory('fileReader', fileReader);
+      .factory('fileReader', fileReader)
+      .factory('LocalStorage', LocalStorage);

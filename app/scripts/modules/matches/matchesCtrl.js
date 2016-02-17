@@ -3,27 +3,41 @@
      * Controller to manage Matches
      * Added $scope to manage data
      */
-    function MatchesController (Matches,$scope) {
+    function MatchesController (Matches,$scope,LocalStorage) {
       /**
        * Initialize the directive
        */
       $scope.init = function(){
         //Initialize the array
         $scope.matchesList=[];
-        //Call the service to get the Matches
-        Matches.query()
-          .$promise.then(
-            //Success
-            function (data) {
-              console.log('Getting Matches');
-              $scope.matchesList = data;
-            },
-            //Error
-            function (error) {
-              console.log(error);
-            }
-        );
+        //Check persistence data on local storage
+        if(LocalStorage.get('matches')===null){
+          //Call the service to get the Matches
+          Matches.query()
+            .$promise.then(
+              //Success
+              function (data) {
+                console.log('Getting Matches');
+                $scope.matchesList = data;
+                LocalStorage.set('matches',data);
+              },
+              //Error
+              function (error) {
+                console.log(error);
+              }
+          );
+        }else{
+          console.log('Getting Data Matches');
+          $scope.rankingList = LocalStorage.get('matches');
+        }
       };
+      /**
+       * Select teams from matches table that matches
+       * team in row selected from ranking table
+       */
+      $scope.matchSelected = function(match){
+        return match.teams[0].name === $scope.teamSelected || match.teams[1].name === $scope.teamSelected;
+      }
     };
 
     /**

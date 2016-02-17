@@ -7,7 +7,7 @@
   </div>
   <div class="panel-body">
     <div class="table-responsive">
-      <table class="table table-striped table-bordered">
+      <table ng-hide="rankingList.length===0" class="table table-striped table-bordered">
         <thead>
           <tr>
             <th>Position</th>
@@ -16,7 +16,8 @@
           </tr>
         </thead>
         <tbody>
-          <tr ng-repeat="position in rankingList | orderBy:['pos','name'] track by $index">
+          <tr ng-repeat="position in rankingList | orderBy:['pos','name'] track by $index"
+              ng-click="selected(position)">
             <td>{{position.pos}}</td>
             <td>{{position.team.name}}</td>
             <td>{{position.pts}}</td>

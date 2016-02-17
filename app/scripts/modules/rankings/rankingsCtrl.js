@@ -3,27 +3,42 @@
      * Controller to manage Ranknig
      * Added $scope to manage data
      */
-    function RankingsController (Rankings,$scope) {
+    function RankingsController (Rankings,$scope,LocalStorage) {
       /**
        * Initialize the directive
        */
       $scope.init = function(){
         //Initialize the array
         $scope.rankingList=[];
-        //Call the service to get the Ranking
-        Rankings.query()
-          .$promise.then(
-            //Success
-            function (data) {
-              console.log('Getting Ranking');
-              $scope.rankingList = data;
-            },
-            //Error
-            function (error) {
-              console.log(error);
-            }
-        );
+        $scope.indexRankingSelected = -1;
+        //Check persistence data on local storage
+        if(LocalStorage.get('ranking')===null){
+          //Call the service to get the Ranking
+          Rankings.query()
+            .$promise.then(
+              //Success
+              function (data) {
+                console.log('Getting Mock Ranking');
+                $scope.rankingList = data;
+                LocalStorage.set('ranking',data);
+              },
+              //Error
+              function (error) {
+                console.log(error);
+              }
+          );
+        }else{
+          console.log('Getting Data Ranking');
+          $scope.rankingList = LocalStorage.get('ranking');
+        }
       };
+      /**
+       * Row selected from ranking table
+       */
+      $scope.selected = function (position){
+        $scope.postionRankingSelected = position.pos;
+        $scope.teamSelected = position.team.name;
+      }
 
     };
 

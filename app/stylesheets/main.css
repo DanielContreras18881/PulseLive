@@ -3,3 +3,7 @@ body {
   color: #0085ca;
   border: #d02c2f;
 }
+.selected {
+  background-color: #78c9bd !important;
+  color: #f0f3f5 !important;
+}

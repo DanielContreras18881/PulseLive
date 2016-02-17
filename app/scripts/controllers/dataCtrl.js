@@ -3,7 +3,7 @@
      * Principal controller of the app
      * Added $scope to manage data
      */
-    function PrincipalController ($scope,dialogs,$filter) {
+    function PrincipalController ($scope,dialogs,$filter,LocalStorage) {
       //Setting a number version for the app
       $scope.version = '1.0.0';
       /**
@@ -65,6 +65,7 @@
           //New match data
           $scope.matchesList.push(matchData);//Add the match to the match list
         }
+        LocalStorage.set('matches',$scope.matchesList);
         $scope.updateRanking(matchData);//Evaluate the match to update the ranking list
       }
       /**
@@ -104,6 +105,7 @@
               homeTeam.pts = (homeTeam.pts + draw).toPrecision(2);
               visitorTeam.pts = (visitorTeam.pts + draw).toPrecision(2);
             }
+            LocalStorage.set('ranking',$scope.rankingList);
           }else{//One or both teams do not exist on the ranking
             console.log('These teams do not participate in this league! Try again!');
           }
@@ -115,6 +117,8 @@
       $scope.initRanking = function(data){
         $scope.rankingList = data;
         $scope.matchesList = [];
+        LocalStorage.set('ranking',$scope.rankingList);
+        LocalStorage.set('matches',$scope.matchesList);
       }
 
     };
